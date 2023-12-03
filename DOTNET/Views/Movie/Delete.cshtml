@@ -1,0 +1,19 @@
+@model MvcMovie.Models.Movie
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this Movie?</h3>
+<div>
+    <h4>Name: @Model.Name</h4>
+    <h4>Genre: @Model.Genre.Name</h4>
+
+    <form asp-action="Delete" asp-route-id="@Model.Id" class="d-inline">
+        <button class="btn btn-danger">Delete</button>
+    </form>
+
+</div>
+<a asp-action="index">go back</a>
