@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "XuYn9Dlc1I0gCgAhXDNWmi6Lkq3J3BMS57J1NIl9hQ5KrZNo3aCzIlvzqrrV+BeYRbBZ6goaqMEuAytli2MtWw==",
+  "dgSpecHash": "TE5VV8m5fPfkKtp6VhkCUrupzuWq7j21XY0Mc3Y+B0ZCgOjaEW+XBAq5N2WeWBficCduawsvoUNvDOmgd33P6g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\mahdi\\OneDrive\\Bureau\\TPDOTNET\\TP4\\TP4\\TP4-2.csproj",
+  "projectFilePath": "C:\\Users\\mahdi\\OneDrive\\Documents\\DOTNET\\DOTNET\\TP4-2.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\mahdi\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\mahdi\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",

@@ -3430,11 +3430,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\mahdi\\OneDrive\\Bureau\\TPDOTNET\\TP4\\TP4\\TP4-2.csproj",
+      "projectUniqueName": "C:\\Users\\mahdi\\OneDrive\\Documents\\DOTNET\\DOTNET\\TP4-2.csproj",
       "projectName": "TP4-2",
-      "projectPath": "C:\\Users\\mahdi\\OneDrive\\Bureau\\TPDOTNET\\TP4\\TP4\\TP4-2.csproj",
+      "projectPath": "C:\\Users\\mahdi\\OneDrive\\Documents\\DOTNET\\DOTNET\\TP4-2.csproj",
       "packagesPath": "C:\\Users\\mahdi\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\mahdi\\OneDrive\\Bureau\\TPDOTNET\\TP4\\TP4\\obj\\",
+      "outputPath": "C:\\Users\\mahdi\\OneDrive\\Documents\\DOTNET\\DOTNET\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\mahdi\\AppData\\Roaming\\NuGet\\NuGet.Config",
