@@ -1,7 +1,8 @@
 # TP3
-    
+    Vous devez changer la chaine de connexion dans le fichier appsettings.json par ta propre chaine de connexion.
+
 # TP2
-    Assurez de modifier le fichier appsettings.json pour changer la chaine de connexion a votre base de donnees.
+    Vous devez changer la chaine de connexion dans le fichier appsettings.json par ta propre chaine de connexion.
 
 # TP1
 ## Test des URL
