@@ -1,4 +1,4 @@
-namespace ASPCoreApplication2023.Models
+namespace DOTNET.Models
 {
     public class ErrorViewModel
     {

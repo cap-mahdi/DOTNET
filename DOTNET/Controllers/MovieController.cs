@@ -1,37 +1,162 @@
-﻿using ASPCoreApplication2023.Models;
-using ASPCoreApplication2023.ViewModel;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
+using DOTNET.Data;
+using DOTNET.Models;
+using DOTNET.ViewModel;
+using NuGet.Protocol;
 
-namespace ASPCoreApplication2023.Controllers
+namespace DOTNET.Controllers
 {
     public class MovieController : Controller
     {
-    
-        public IActionResult Index()
-        {
-            Movie movie = new Movie()
-            {
-                Name =
-            "movie 1"
-            };
-            List<Movie> Movie = new List<Movie>()
-                {
-                new Movie{Name="Interstellar"},
-                new Movie{Name="Inception"},
-                new Movie{Name="The Dark Knight"},
+        private readonly ApplicationDbContext _context;
 
-                };
-            return View(Movie);
-        }
-        public IActionResult Edit(int id)
+        public MovieController(ApplicationDbContext context)
         {
-            return Content("Test Id" + id);
+            _context = context;
         }
+
+        public async Task<IActionResult> Index()
+        {
+            return View(await _context.Movies.Include(m => m.Genre).ToListAsync());
+        }
+
+        public async Task<IActionResult> Details(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var movie = await _context.Movies
+            .Include(m => m.Genre)
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (movie == null)
+            {
+                return NotFound();
+            }
+
+            return View(movie);
+        }
+
+        public async Task<IActionResult> Create()
+        {
+            var Genre = await _context.Genres.ToListAsync();
+            ViewBag.Genre = Genre;
+            return View();
+        }
+
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create([Bind("Id,Name,GenreId")] Movie movie)
+        {
+
+            if (ModelState.IsValid)
+            {
+                _context.Add(movie);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Details), new { id = movie.Id });
+            }
+            return View(movie);
+        }
+
+        public async Task<IActionResult> Edit(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var movie = await _context.Movies
+            .Include(m => m.Genre)
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (movie == null)
+            {
+                return NotFound();
+            }
+            var Genre = await _context.Genres.ToListAsync();
+            ViewBag.Genre = Genre;
+            return View(movie);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(int id, Movie movie)
+        {
+            if (id != movie.Id)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.Update(movie);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!_context.Movies.Any(m => m.Id == id))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                return RedirectToAction(nameof(Details), new { id = movie.Id });
+            }
+            return View(movie);
+        }
+
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var movie = await _context.Movies
+            .Include(m => m.Genre)
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (movie == null)
+            {
+                return NotFound();
+            }
+            return View(movie);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            var movie = await _context.Movies.FindAsync(id);
+            if (movie != null)
+            {
+                _context.Movies.Remove(movie);
+            }
+
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
+        // public IActionResult Edit(int id)
+        // {
+        //     return Content("Test Id" + id);
+        // }
         public IActionResult ByRelease(int month, int year)
         {
             return Content("Month " + month + " Year " + year);
         }
-
         public IActionResult Clients(int id)
         {
             //Si un id n'est pas fourni, renvoyez tous les clients
@@ -72,7 +197,5 @@ namespace ASPCoreApplication2023.Controllers
             return View(filmClients);
         }
        
-
-
     }
 }

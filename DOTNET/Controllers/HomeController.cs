@@ -1,8 +1,8 @@
-﻿using ASPCoreApplication2023.Models;
+using DOTNET.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
-namespace ASPCoreApplication2023.Controllers
+namespace DOTNET.Controllers
 {
     public class HomeController : Controller
     {

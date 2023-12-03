@@ -1,6 +1,6 @@
-﻿using ASPCoreApplication2023.Models;
+﻿using DOTNET.Models;
 
-namespace ASPCoreApplication2023.ViewModel
+namespace DOTNET.ViewModel
 {
     public class FilmClients
     {
