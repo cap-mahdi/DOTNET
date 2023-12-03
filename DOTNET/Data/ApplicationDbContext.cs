@@ -10,8 +10,9 @@ namespace DOTNET.Data
 
         }
 
+         public DbSet<Movie> Movies { get; set; }
         public DbSet<Genre> Genres { get; set; }
         public DbSet<Customer> Customers { get; set; }
-        public DbSet<Movie> Movies { get; set; }
+        public DbSet<Membershiptype> Membershiptypes { get; set; }
     }
 }

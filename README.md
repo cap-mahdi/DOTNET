@@ -1,12 +1,15 @@
+# TP2
+ You have to chanfe the connection string in the appsettings.json file to your own connection string.
+
 # TP1
 ## Test des URL
-	https://localhost:7191/
-	https://localhost:7191/Movie
-	https://localhost:7191/Movie/index
-	https://localhost:7191/Movie/Edit/id ex: https://localhost:7191/Movie/Edit/1
-	https://localhost:7191/Movie/year/month ex: https://localhost:7191/Movie/released/2023/11
-	https://localhost:7191/Movie/clients
-	https://localhost:7191/Movie/clients/id ex: https://localhost:7191/Movie/clients/2
+	http://localhost:5044
+	http://localhost:5044/Movie
+	http://localhost:5044/Movie/index
+	http://localhost:5044/Movie/Edit/id ex: http://localhost:5044/Movie/Edit/1
+	http://localhost:5044/Movie/year/month ex: http://localhost:5044/Movie/released/2023/11
+	http://localhost:5044/Movie/clients
+	http://localhost:5044/Movie/clients/id ex: http://localhost:5044/Movie/clients/2
 
 
 ## Reponses

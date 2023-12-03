@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using DOTNET.Data;
 using DOTNET.Models;
 
-namespace tp2.Controllers
+namespace DOTNET.Controllers
 {
     public class GenreController : Controller
     {

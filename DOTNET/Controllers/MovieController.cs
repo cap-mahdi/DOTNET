@@ -56,14 +56,26 @@ namespace DOTNET.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,GenreId")] Movie movie)
+        public async Task<IActionResult> Create([Bind("Id,Name,Movie_Added,GenreId")] Movie movie,IFormFile file)
         {
-
+            Console.WriteLine(file==null?"null":"not null");
             if (ModelState.IsValid)
             {
+                if (file != null && file.Length > 0)
+                {
+                    
+                    
+                    using (var memoryStream = new MemoryStream())
+                    {
+                        await file.CopyToAsync(memoryStream);
+
+                        movie.file = memoryStream.ToArray();
+                    }
+                    
+                }
                 _context.Add(movie);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Details), new { id = movie.Id });
+                return RedirectToAction(nameof(Index));
             }
             return View(movie);
         }
@@ -195,6 +207,10 @@ namespace DOTNET.Controllers
                 Customer = Customer
             };
             return View(filmClients);
+        }
+        private bool MovieExists(int id)
+        {
+          return (_context.Movies?.Any(e => e.Id == id)).GetValueOrDefault();
         }
        
     }
