@@ -1,5 +1,5 @@
 # TP2
- You have to chanfe the connection string in the appsettings.json file to your own connection string.
+    Assurez de modifier le fichier appsettings.json pour changer la chaine de connexion a votre base de donnees.
 
 # TP1
 ## Test des URL
