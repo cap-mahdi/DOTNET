@@ -1,0 +1,32 @@
+@model TP4.Models.Movie
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+ @{
+    ViewBag.Title = "Create Movie";
+}
+<h2>Create a New Movie</h2>
+
+@using (Html.BeginForm("AddMovie", "Movie", FormMethod.Post))
+{
+    <div>
+        <label asp-for="Name">Name:</label>
+        <input asp-for="Name" />
+    </div>
+
+    <div>
+        <label asp-for="Description">Description:</label>
+        <textarea asp-for="Description"></textarea>
+    </div>
+
+    @* <div>
+        <label asp-for="Roles">Roles:</label>
+        <select asp-for="Roles" asp-items="@Model.Roles.Select(r => new SelectListItem { Value = r.ToString(), Text = r.ToString() })"></select>
+    </div> *@
+
+    <!-- Add other properties as needed -->
+
+    <div>
+        <button type="submit">Add Movie</button>
+    </div>
+}
